@@ -1,4 +1,4 @@
-alert("ciao")
+
 const sliderImages = [
     "immagini/consegna/img/01.jpg",
     "immagini/consegna/img/02.jpg",
@@ -7,14 +7,14 @@ const sliderImages = [
     "immagini/consegna/img/05.jpg"
 ];
 console.log(sliderImages);
-
+// elementi HTML
 const itemsContainer = document.querySelector("items-container")
-console.log(itemsContainer);
+// console.log(itemsContainer);
 
 for (let i = 0; i < sliderImages.lenght; i++) {
     const thisImg = sliderImages[i];
     const element = `
-    <div class="item">
+    <div class="items">
         <img src="${thisImg}" alt="">
     </div>`;
     console.log(element, thisImg);
@@ -23,13 +23,16 @@ for (let i = 0; i < sliderImages.lenght; i++) {
 
 
 
-const items = document.getElementById("item");
+const items = document.getElementsByClassName("items");
+console.log(items);
+const prevBtn = document.querySelector(".prev");
+const nextBtn = document.querySelector(".next");
+
 let sliderPosition = 0;
-items[sliderPosition].classList.add("active");
+items[2].classList.add("active");
 console.log(items);
 
 //Navigazione
-const nextBtn = document.querySelector(".next");
 nextBtn.addEventListener("click", function () {
 
     if (sliderPosition < (items.lenght - 1)) {
@@ -41,12 +44,13 @@ nextBtn.addEventListener("click", function () {
 
         items[sliderPosition].classList.add("active");
     }
+
 });
 //se posso andare avanti
 
 
 
-const prevBtn = document.querySelector(".prev");
+
 prevBtn.addEventListener("click", function () {
     if (sliderPosition > 0) {
 
