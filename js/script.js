@@ -8,43 +8,43 @@ const sliderImages = [
 ];
 console.log(sliderImages);
 // elementi HTML
-const itemsContainer = document.querySelector("items-container")
-// console.log(itemsContainer);
+const itemsContainer = document.querySelector(".items-container")
+console.log(itemsContainer);
 
-for (let i = 0; i < sliderImages.lenght; i++) {
-    const thisImg = sliderImages[i];
+for (let i = 0; i < sliderImages.length; i++) {
+
     const element = `
-    <div class="items">
-        <img src="${thisImg}" alt="">
-    </div>`;
-    console.log(element, thisImg);
+    <div class="item">
+        <img src="${sliderImages[i]}" alt="">
+    </div>`
     itemsContainer.innerHTML += element;
 }
+console.log(itemsContainer);
 
 
-
-const items = document.getElementsByClassName("items");
+const items = document.getElementsByClassName("item");
 console.log(items);
 const prevBtn = document.querySelector(".prev");
 const nextBtn = document.querySelector(".next");
 
 let sliderPosition = 0;
-items[2].classList.add("active");
-console.log(items);
+console.log(items, sliderPosition);
+items[sliderPosition].classList.add("active");
 
 //Navigazione
 nextBtn.addEventListener("click", function () {
-
-    if (sliderPosition < (items.lenght - 1)) {
-        console.log(sliderPosition, items[sliderPosition]);
-
+    //SE posso andare avanti
+    if (sliderPosition < (items.length - 1)) {
+        //Tolgo class active all'items iniziale
         items[sliderPosition].classList.remove("active");
 
+        //Incremento sliderPosition di 1
         sliderPosition++;
 
+        //aggiungiamo active al nuovo elemento 
         items[sliderPosition].classList.add("active");
-    }
 
+    }
 });
 //se posso andare avanti
 
@@ -52,12 +52,15 @@ nextBtn.addEventListener("click", function () {
 
 
 prevBtn.addEventListener("click", function () {
+    //SE posso andare indietro
     if (sliderPosition > 0) {
-
+        //Tolgo class active all'items corrente
         items[sliderPosition].classList.remove("active");
 
+        //Decremento sliderPosition di 1
         sliderPosition--;
 
+        //aggiungiamo active al nuovo elemento corrente
         items[sliderPosition].classList.add("active");
     }
 });
