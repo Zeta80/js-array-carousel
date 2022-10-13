@@ -23,6 +23,11 @@
 
 .item {
     height: 60vh;
+    display: none;
+}
+
+.active {
+    display: block;
 }
 
 .item img {

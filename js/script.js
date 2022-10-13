@@ -24,14 +24,14 @@ console.log(itemsContainer);
 
 const items = document.getElementsByClassName("item");
 console.log(items);
-const prevBtn = document.querySelector(".prev");
-const nextBtn = document.querySelector(".next");
 
 let sliderPosition = 0;
 console.log(items, sliderPosition);
 items[sliderPosition].classList.add("active");
 
 //Navigazione
+
+const nextBtn = document.querySelector(".next");
 nextBtn.addEventListener("click", function () {
     //SE posso andare avanti
     if (sliderPosition < (items.length - 1)) {
@@ -50,7 +50,7 @@ nextBtn.addEventListener("click", function () {
 
 
 
-
+const prevBtn = document.querySelector(".prev");
 prevBtn.addEventListener("click", function () {
     //SE posso andare indietro
     if (sliderPosition > 0) {
